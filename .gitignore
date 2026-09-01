@@ -2,3 +2,7 @@ venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Enregistrements sources bruts (~23 Mo) : reproductibles via _preparer.py.
+# Seuls les échantillons découpés (notes/*.wav, ~2 Mo) sont versionnés.
+solstudio/data/echantillons_violon/*.aiff
