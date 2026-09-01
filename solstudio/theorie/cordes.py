@@ -45,3 +45,11 @@ def ecart_par_rapport_a_vide(freq: float, corde: str) -> float:
     midi_joue = freq_vers_midi(freq)
     midi_vide = freq_vers_midi(CORDES[corde]["freq"])
     return round((midi_joue - midi_vide) * 100.0, 1)
+
+
+def midi_de_la_note(corde: str, position: int) -> int:
+    """MIDI de la note jouée sur une corde à une position donnée (nombre de
+    demi-tons au-dessus de la corde à vide)."""
+    if corde not in CORDES:
+        raise ValueError(f"Corde inconnue : {corde!r}")
+    return round(freq_vers_midi(CORDES[corde]["freq"])) + position

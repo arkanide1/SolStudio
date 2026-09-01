@@ -13,14 +13,11 @@ class MorceauInvalide(Exception):
     """Levée quand un fichier script ne respecte pas le format attendu."""
 
 
-def charger_morceau(chemin) -> dict:
-    """Charge un morceau depuis un fichier JSON et valide sa structure.
+def valider_morceau(data: dict) -> dict:
+    """Valide la structure d'un morceau déjà chargé (dict Python).
 
-    Retourne le dict complet : {"titre": ..., "notes": [ {...}, ... ]}
+    Retourne le dict inchangé si valide, lève MorceauInvalide sinon.
     """
-    chemin = Path(chemin)
-    data = json.loads(chemin.read_text(encoding="utf-8"))
-
     if "notes" not in data or not isinstance(data["notes"], list):
         raise MorceauInvalide("Le fichier doit contenir une liste 'notes'")
 
@@ -33,3 +30,13 @@ def charger_morceau(chemin) -> dict:
             raise MorceauInvalide(f"Note {i} : champs manquants {sorted(manquants)}")
 
     return data
+
+
+def charger_morceau(chemin) -> dict:
+    """Charge un morceau depuis un fichier JSON et valide sa structure.
+
+    Retourne le dict complet : {"titre": ..., "notes": [ {...}, ... ]}
+    """
+    chemin = Path(chemin)
+    data = json.loads(chemin.read_text(encoding="utf-8"))
+    return valider_morceau(data)

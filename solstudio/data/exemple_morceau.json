@@ -2,12 +2,12 @@
   "titre": "Exemple - Gamme de Sol majeur (extrait)",
   "notes": [
     { "note": "Sol", "corde": "Sol", "position": 0, "doigt": 0, "duree_temps": 1 },
-    { "note": "La", "corde": "Sol", "position": 1, "doigt": 1, "duree_temps": 1 },
-    { "note": "Si", "corde": "Sol", "position": 2, "doigt": 2, "duree_temps": 1 },
-    { "note": "Do", "corde": "Sol", "position": 3, "doigt": 3, "duree_temps": 1 },
+    { "note": "La", "corde": "Sol", "position": 2, "doigt": 1, "duree_temps": 1 },
+    { "note": "Si", "corde": "Sol", "position": 4, "doigt": 2, "duree_temps": 1 },
+    { "note": "Do", "corde": "Sol", "position": 5, "doigt": 3, "duree_temps": 1 },
     { "note": "Ré", "corde": "Ré", "position": 0, "doigt": 0, "duree_temps": 1 },
-    { "note": "Mi", "corde": "Ré", "position": 1, "doigt": 1, "duree_temps": 1 },
-    { "note": "Fa#", "corde": "Ré", "position": 2, "doigt": 2, "duree_temps": 1 },
-    { "note": "Sol", "corde": "Ré", "position": 3, "doigt": 3, "duree_temps": 1 }
+    { "note": "Mi", "corde": "Ré", "position": 2, "doigt": 1, "duree_temps": 1 },
+    { "note": "Fa#", "corde": "Ré", "position": 4, "doigt": 2, "duree_temps": 1 },
+    { "note": "Sol", "corde": "Ré", "position": 5, "doigt": 3, "duree_temps": 1 }
   ]
 }

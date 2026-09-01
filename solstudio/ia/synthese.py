@@ -12,16 +12,11 @@ from pathlib import Path
 
 import numpy as np
 
-from solstudio.theorie.cordes import CORDES
-from solstudio.theorie.solfege import freq_vers_midi, midi_vers_freq
+from solstudio.theorie.cordes import midi_de_la_note
+from solstudio.theorie.solfege import midi_vers_freq
 
 AMPLITUDE = 0.3
 TEMPO_BPM_DEFAUT = 80
-
-
-def _midi_de_la_note(corde: str, position: int) -> float:
-    midi_a_vide = round(freq_vers_midi(CORDES[corde]["freq"]))
-    return midi_a_vide + position
 
 
 def _tonaliser(freq: float, duree_s: float, samplerate: int) -> np.ndarray:
@@ -49,7 +44,7 @@ def synthetiser_script(
 
     ondes = []
     for note in script["notes"]:
-        midi = _midi_de_la_note(note["corde"], note["position"])
+        midi = midi_de_la_note(note["corde"], note["position"])
         freq = midi_vers_freq(midi)
         duree = max(0.05, note["duree_temps"] * duree_par_temps_s)
         ondes.append(_tonaliser(freq, duree, samplerate))

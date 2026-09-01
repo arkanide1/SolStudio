@@ -9,14 +9,9 @@ Simplification V1 : position = nombre de demi-tons au-dessus de la corde
 le doigté pédagogiquement idéal, mais donne un point de départ exploitable.
 """
 
-from solstudio.theorie.cordes import CORDES, ORDRE_CORDES
-from solstudio.theorie.solfege import freq_vers_midi
+from solstudio.theorie.cordes import ORDRE_CORDES, midi_de_la_note
 
 POSITION_MAX = 12  # limite raisonnable sur le manche pour la V1
-
-
-def _midi_a_vide(corde: str) -> int:
-    return round(freq_vers_midi(CORDES[corde]["freq"]))
 
 
 def choisir_corde_et_position(midi_note: int):
@@ -28,7 +23,7 @@ def choisir_corde_et_position(midi_note: int):
     """
     candidats = []
     for corde in ORDRE_CORDES:
-        position = midi_note - _midi_a_vide(corde)
+        position = midi_note - midi_de_la_note(corde, 0)
         if 0 <= position <= POSITION_MAX:
             candidats.append((corde, position))
 
