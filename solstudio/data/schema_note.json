@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Note jouée / note de script SolStudio",
+  "type": "object",
+  "required": ["note", "corde", "position", "doigt", "duree_temps"],
+  "properties": {
+    "note": {
+      "type": "string",
+      "enum": ["Do", "Do#", "Ré", "Ré#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"],
+      "description": "Nom de la note en solfège latin uniquement."
+    },
+    "corde": {
+      "type": "string",
+      "enum": ["Sol", "Ré", "La", "Mi"],
+      "description": "Corde du violon sur laquelle jouer la note."
+    },
+    "position": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Position sur le manche (0 = corde à vide)."
+    },
+    "doigt": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4,
+      "description": "Doigt à utiliser (0 = corde à vide, 1 = index, ... 4 = auriculaire)."
+    },
+    "duree_temps": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Durée de la note en temps (ex: 1 = noire, 0.5 = croche)."
+    }
+  }
+}
