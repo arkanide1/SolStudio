@@ -1,0 +1,8 @@
+# Dépendances optionnelles du Module 3 (non installées par défaut).
+# La transcription "maison" (solstudio/ia/transcription.py) fonctionne
+# sans elles. Installer ce fichier seulement pour activer l'adaptateur
+# Basic Pitch (solstudio/ia/basic_pitch_adapter.py) :
+#
+#   pip install -r requirements-ia-optionnel.txt
+#
+basic-pitch>=0.4
