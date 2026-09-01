@@ -8,6 +8,7 @@ Usage:
 import sys
 from pathlib import Path
 
+from solstudio.audio.lecture import jouer_wav
 from solstudio.dashboard.script import charger_morceau
 from solstudio.ia.conversion import exporter_script, segments_vers_script
 from solstudio.ia.synthese import synthetiser_script
@@ -33,6 +34,8 @@ def main():
         morceau = charger_morceau(chemin_script)
         synthetiser_script(morceau, chemin_sortie)
         print(f"Aperçu audio généré -> {chemin_sortie}")
+        print("Lecture...")
+        jouer_wav(chemin_sortie)
 
     else:
         print(__doc__)
